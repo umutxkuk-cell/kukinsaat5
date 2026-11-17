@@ -1,0 +1,81 @@
+/* ---------- About ---------- */
+.strip-lede { max-width: 700px; margin: 26px auto 0; text-align: center; color: var(--ink2); font-size: 18px; line-height: 1.65; }
+
+/* ---------- Services ---------- */
+.services-section { padding: 40px 0 140px; background: var(--surface); }
+.services-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 100px; }
+.services-intro { align-self: start; position: sticky; top: 120px; }
+.services-intro h2 { margin-top: 28px; font-size: 48px; font-weight: 400; line-height: 56px; letter-spacing: -.025em; }
+.services-intro > p { max-width: 360px; margin-top: 22px; color: var(--ink2); font-size: 15px; line-height: 1.65; }
+.services-intro > a { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; padding-bottom: 5px; border-bottom: 1px solid var(--ink); font-family: var(--mono); font-size: 8px; letter-spacing: .04em; }
+.services-list { border-bottom: 1px solid var(--line); }
+.service-row { display: grid; grid-template-columns: 56px 1fr; gap: 12px 0; padding: 32px 0 34px; border-top: 1px solid var(--line); }
+.service-row > span { padding-top: 9px; color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .07em; }
+.service-row h3 { font-size: 30px; font-weight: 400; line-height: 1.2; letter-spacing: -.025em; }
+.service-row p { grid-column: 2; max-width: 580px; color: var(--ink2); font-size: 15px; line-height: 1.7; }
+
+/* ---------- Showcase (yalnızca gerçek projeler eklendiğinde) ---------- */
+.showcase-section { padding: 40px 0 140px; background: var(--surface); }
+.showcase-head { display: grid; grid-template-columns: 1.4fr .6fr; align-items: end; gap: 60px; }
+.showcase-head h2 { margin-top: 28px; font-size: 48px; font-weight: 400; line-height: 56px; letter-spacing: -.025em; }
+.showcase-head > p { max-width: 380px; padding-bottom: 6px; color: var(--ink2); font-size: 16px; line-height: 1.65; }
+.showcase-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-top: 56px; }
+.showcase-card { position: relative; display: block; min-height: 540px; overflow: hidden; border-radius: 24px; color: var(--white); background: var(--ink); }
+.showcase-0 { grid-column: span 7; }
+.showcase-1 { grid-column: span 5; }
+.showcase-2 { grid-column: span 5; }
+.showcase-3 { grid-column: span 7; }
+.showcase-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.22, 1, .36, 1); }
+.showcase-card:hover img { transform: scale(1.045); }
+.showcase-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 36, 36, .34) 0%, transparent 34%, rgba(5, 36, 36, .92) 100%); }
+.showcase-status { position: absolute; z-index: 2; top: 18px; left: 18px; display: flex; align-items: center; gap: 7px; padding: 7px 11px; border: 1px solid rgba(255, 255, 255, .4); border-radius: 12px; color: var(--ink); background: rgba(245, 245, 245, .86); backdrop-filter: blur(8px); font-family: var(--mono); font-size: 8px; letter-spacing: .05em; }
+.showcase-status i { width: 5px; height: 5px; border-radius: 50%; background: var(--ink2); }
+.showcase-open { position: absolute; z-index: 2; top: 16px; right: 16px; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; color: var(--ink); background: var(--lime); transition: transform .3s; }
+.showcase-open svg { width: 18px; }
+.showcase-card:hover .showcase-open { transform: rotate(45deg); }
+.showcase-caption { position: absolute; z-index: 2; right: 28px; bottom: 26px; left: 28px; }
+.showcase-caption .micro-label { color: rgba(255, 255, 255, .72); font-size: 9px; }
+.showcase-caption h3 { margin-top: 12px; font-size: 38px; font-weight: 400; line-height: 1.1; letter-spacing: -.03em; }
+.showcase-caption p { margin-top: 10px; color: rgba(255, 255, 255, .72); font-size: 14px; }
+
+/* ---------- Principles ---------- */
+.principles { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 16px; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: var(--lowest); }
+.principles > div { padding: 28px 26px 32px; border-left: 1px solid var(--line); }
+.principles > div:first-child { border-left: 0; }
+.principles span { color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .07em; }
+.principles h3 { margin-top: 38px; font-size: 26px; font-weight: 400; letter-spacing: -.02em; }
+.principles p { margin-top: 12px; color: var(--ink2); font-size: 14px; line-height: 1.6; }
+
+@media (max-width: 1100px) {
+  .services-layout { gap: 60px; }
+  .showcase-card { min-height: 460px; }
+  .showcase-caption h3 { font-size: 32px; }
+}
+@media (max-width: 850px) {
+  .services-layout { grid-template-columns: 1fr; gap: 44px; }
+  .services-intro { position: static; }
+  .showcase-head { grid-template-columns: 1fr; gap: 24px; }
+  .showcase-grid { grid-template-columns: 1fr; }
+  .showcase-0, .showcase-1, .showcase-2, .showcase-3 { grid-column: auto; }
+  .showcase-card { min-height: 440px; }
+  .principles { grid-template-columns: repeat(2, 1fr); }
+  .principles > div:nth-child(3) { border-left: 0; }
+  .principles > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 650px) {
+  .strip-lede { font-size: 15px; }
+  .services-section { padding: 24px 0 95px; }
+  .services-intro h2 { font-size: 35px; line-height: 42px; }
+  .service-row { grid-template-columns: 40px 1fr; padding: 26px 0 28px; }
+  .service-row h3 { font-size: 24px; }
+  .showcase-section { padding: 24px 0 95px; }
+  .showcase-head h2 { font-size: 35px; line-height: 42px; }
+  .showcase-grid { margin-top: 38px; }
+  .showcase-card { min-height: 400px; }
+  .showcase-caption { right: 20px; bottom: 20px; left: 20px; }
+  .showcase-caption h3 { font-size: 28px; }
+  .principles { grid-template-columns: 1fr; }
+  .principles > div { border-left: 0; border-top: 1px solid var(--line); }
+  .principles > div:first-child { border-top: 0; }
+  .principles h3 { margin-top: 24px; }
+}

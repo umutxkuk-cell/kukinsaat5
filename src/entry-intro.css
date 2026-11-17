@@ -1,0 +1,377 @@
+/* ==========================================================================
+   KUK İNŞAAT — ARCHITECTURAL MONOLITH ENTRY SEQUENCE (2026)
+   Siteye ilk girişte çalışan, KUK İnşaat'ın Obsidyen · Mimari Bronz · Kireçtaşı
+   kimliğiyle bütünleşik, çift kanatlı mimari diyafram açılış animasyonu.
+   ========================================================================== */
+
+.kuk-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(22px, 3vw, 38px) clamp(24px, 3.6vw, 52px);
+  color: #faf9f5;
+  font-family: var(--sans);
+  pointer-events: auto;
+  overflow: hidden;
+  user-select: none;
+}
+
+.kuk-intro.is-exiting {
+  pointer-events: none;
+}
+
+/* Çift kanatlı mimari kepenk / monolit perde */
+.kuk-intro__shutter {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50.5%;
+  background:
+    radial-gradient(90% 120% at 50% 50%, #171b1e 0%, #0b0d0f 100%);
+  transition: transform 1.05s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform;
+  z-index: 0;
+}
+
+.kuk-intro__shutter--top {
+  top: 0;
+  border-bottom: 1px solid rgba(194, 162, 118, 0.28);
+}
+
+.kuk-intro__shutter--bottom {
+  bottom: 0;
+  border-top: 1px solid rgba(194, 162, 118, 0.28);
+}
+
+.kuk-intro.is-exiting .kuk-intro__shutter--top {
+  transform: translate3d(0, -102%, 0);
+}
+
+.kuk-intro.is-exiting .kuk-intro__shutter--bottom {
+  transform: translate3d(0, 102%, 0);
+}
+
+/* Mimari aks çizgileri */
+.kuk-intro__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  pointer-events: none;
+  padding-inline: clamp(24px, 3.6vw, 52px);
+  transition: opacity 0.55s ease;
+}
+
+.kuk-intro__grid span {
+  border-left: 1px solid rgba(250, 249, 245, 0.055);
+}
+
+.kuk-intro__grid span:last-child {
+  border-right: 1px solid rgba(250, 249, 245, 0.055);
+}
+
+.kuk-intro.is-exiting .kuk-intro__grid,
+.kuk-intro.is-exiting .kuk-intro__top,
+.kuk-intro.is-exiting .kuk-intro__center,
+.kuk-intro.is-exiting .kuk-intro__bottom {
+  opacity: 0;
+  transform: translate3d(0, -10px, 0);
+  transition: opacity 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Üst teknik HUD */
+.kuk-intro__top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 249, 245, 0.62);
+}
+
+.kuk-intro__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.kuk-intro__status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c2a276;
+  box-shadow: 0 0 14px rgba(194, 162, 118, 0.9);
+  animation: kuk-intro-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes kuk-intro-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+/* Merkez Monolit & Amblem Sahnesi */
+.kuk-intro__center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-block: auto;
+  padding: 24px 0;
+}
+
+.kuk-intro__emblem-wrap {
+  position: relative;
+  width: 84px;
+  height: 94px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 26px;
+}
+
+.kuk-intro__emblem-ring {
+  position: absolute;
+  inset: -16px;
+  border: 1px solid rgba(194, 162, 118, 0.22);
+  border-radius: 24px;
+  transform: rotate(45deg) scale(0.88);
+  animation: kuk-ring-breathe 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes kuk-ring-breathe {
+  from {
+    opacity: 0;
+    transform: rotate(45deg) scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+.kuk-intro__emblem {
+  width: 62px;
+  height: 70px;
+  overflow: visible;
+}
+
+.kuk-intro__emblem path {
+  fill: rgba(194, 162, 118, 0);
+  stroke: #d4b489;
+  stroke-width: 7;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation:
+    kuk-svg-draw 1.45s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    kuk-svg-fill 0.85s 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes kuk-svg-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes kuk-svg-fill {
+  to {
+    fill: rgba(250, 249, 245, 0.96);
+    stroke: rgba(194, 162, 118, 0.45);
+  }
+}
+
+.kuk-intro__kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #c2a276;
+  margin-bottom: 12px;
+}
+
+.kuk-intro__brand {
+  font-family: var(--display);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  color: #faf9f5;
+  margin: 0;
+}
+
+.kuk-intro__tagline {
+  margin-top: 14px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(20px, 2.2vw, 28px);
+  letter-spacing: 0.01em;
+  color: rgba(241, 239, 233, 0.82);
+}
+
+/* 4 Aşamalı Kalibrasyon Çubuğu */
+.kuk-intro__phases {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  width: min(760px, 92vw);
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(250, 249, 245, 0.12);
+}
+
+.kuk-intro__phase {
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  opacity: 0.36;
+  transition: opacity 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
+}
+
+.kuk-intro__phase.is-active {
+  opacity: 1;
+  border-color: rgba(194, 162, 118, 0.32);
+  background: rgba(166, 129, 88, 0.12);
+}
+
+.kuk-intro__phase b {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: #c2a276;
+}
+
+.kuk-intro__phase span {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  color: rgba(250, 249, 245, 0.88);
+}
+
+/* Alt İlerleme & Sayaç Barı */
+.kuk-intro__bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.kuk-intro__bar {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: rgba(250, 249, 245, 0.14);
+  overflow: hidden;
+}
+
+.kuk-intro__bar-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #77572f 0%, #c2a276 60%, #faf9f5 100%);
+  transform-origin: left center;
+  transition: transform 0.12s linear;
+}
+
+.kuk-intro__foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.kuk-intro__counter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--display);
+  font-size: clamp(32px, 4.2vw, 54px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  color: #faf9f5;
+}
+
+.kuk-intro__counter small {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #c2a276;
+}
+
+.kuk-intro__skip {
+  padding: 8px 16px;
+  border: 1px solid rgba(250, 249, 245, 0.22);
+  border-radius: 999px;
+  background: rgba(250, 249, 245, 0.05);
+  color: rgba(250, 249, 245, 0.82);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.kuk-intro__skip:hover {
+  border-color: #c2a276;
+  background: rgba(166, 129, 88, 0.2);
+  color: #ffffff;
+}
+
+@media (max-width: 720px) {
+  .kuk-intro__phases {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .kuk-intro__tagline {
+    min-height: 2.5em;
+    line-height: 1.25;
+  }
+  .kuk-intro__phase span {
+    min-height: 2.7em;
+  }
+  .kuk-intro__top span:last-child {
+    display: none;
+  }
+}
+
+/* Perde kapalıyken alttaki sayfanın giriş animasyonlarını beklet:
+   aksi hâlde animasyonlar perdenin arkasında, görülmeden biter. */
+html[data-kuk-intro] [data-sgi="rise"],
+html[data-kuk-intro] [data-sgi="stagger"] > * {
+  opacity: 0 !important;
+  transform: translate3d(0, 24px, 0) !important;
+}
+
+html[data-kuk-intro] .ax-win--lit {
+  fill: var(--ax-glass) !important;
+}
+
+html[data-kuk-intro] .sgi-word > span,
+html[data-kuk-intro] .kt-hero-premium__copy > *,
+html[data-kuk-intro] .ck-bar {
+  animation-play-state: paused !important;
+}

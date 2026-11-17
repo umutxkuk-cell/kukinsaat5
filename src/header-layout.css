@@ -1,0 +1,147 @@
+/* Header layout balance only.
+   The existing scroll, hover and mega-menu animation logic/timing is untouched.
+   KURUMSAL, HİZMETLER and PROJELERİMİZ span the middle bar proportionally in 3 equal columns. */
+.terminal-header-bar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: clamp(20px, 2.8vw, 42px);
+  padding: 0 12px 0 18px;
+}
+.header-logo { justify-self: start; }
+.brand { gap: 10px; align-items: center; }
+.brand-mark { width: 26.5px; height: 30px; }
+.brand-word {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .1em;
+}
+.brand-word small {
+  margin-top: 5px;
+  font-family: var(--sans);
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .34em;
+}
+.header-nav {
+  width: 100%;
+  justify-self: stretch;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(8px, 1.4vw, 18px);
+  padding-inline: clamp(4px, 1.6vw, 24px);
+  margin-left: 0;
+}
+.header-nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-nav-item > button,
+.header-nav-link {
+  width: 100%;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 16px;
+  border-radius: 13px;
+  font-size: 10px;
+  letter-spacing: .09em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.header-nav-item > button::after {
+  left: 22px;
+}
+.header-nav-item > button:hover::after,
+.header-nav-item > button[aria-expanded="true"]::after,
+.header-nav-item.is-active > button::after,
+.header-nav-item.is-active > .header-nav-link::after {
+  right: 22px;
+}
+.header-nav-item.is-active > button,
+.header-nav-item.is-active > .header-nav-link {
+  background: rgba(166, 129, 88, .14);
+}
+.header-context { display: none; }
+.header-ctas {
+  justify-self: end;
+  align-items: center;
+  gap: 8px;
+  margin-left: 0;
+}
+.header-ctas .t-button {
+  min-width: 168px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 14px;
+  font-size: 9px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.header-menu-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+}
+.mega-intro__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(250, 249, 245, .36);
+  color: var(--text-on-dark);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  transition: color .25s ease, border-color .25s ease;
+}
+.mega-intro__cta:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+.mega-menu { z-index: 30; pointer-events: auto; }
+.mega-links a { position: relative; z-index: 1; cursor: pointer; }
+.header-nav-item > button, .header-nav-link { cursor: pointer; }
+.mobile-sub-links.open { max-height: 480px; }
+.mobile-sub-links a { min-height: 44px; display: flex; align-items: center; cursor: pointer; }
+.mobile-drawer-actions .t-button { flex: 1; justify-content: center; }
+
+@media (max-width: 1220px) {
+  .terminal-header-bar { column-gap: 18px; }
+  .header-nav { gap: 6px; padding-inline: 4px; }
+  .header-nav-item > button,
+  .header-nav-link { padding: 0 10px; font-size: 9.2px; }
+  .header-ctas .t-button { min-width: 148px; padding: 0 14px; font-size: 8.5px; }
+}
+@media (max-width: 1050px) {
+  .header-nav { display: none; }
+  .terminal-header-bar { grid-template-columns: auto 1fr auto; }
+  .header-menu-toggle { justify-self: end; display: grid; place-items: center; }
+}
+@media (max-width: 650px) {
+  .terminal-header-bar {
+    height: 60px;
+    column-gap: 14px;
+    padding: 0 9px 0 13px;
+    border-radius: 17px;
+  }
+  .terminal-header.is-scrolled .terminal-header-bar { height: 56px; }
+  .brand { gap: 9px; }
+  .brand-mark { width: 24px; height: 27.2px; }
+  .brand-word { font-size: 17px; letter-spacing: .1em; }
+  .brand-word small { margin-top: 4px; font-size: 7.4px; letter-spacing: .32em; }
+  .header-menu-toggle { width: 42px; height: 42px; border-radius: 13px; }
+}

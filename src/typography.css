@@ -1,0 +1,73 @@
+/* 2026 typography architecture
+   Archivo  — display headings (brutalist precision)
+   Inter    — running text
+   Space Mono — technical data: dates, areas, coordinates, badges, counters
+   Loaded last so these tokens apply to the existing class names without touching them. */
+
+/* ---------- Headings (H1–H3) ---------- */
+:root h1,
+:root h2,
+:root h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+:root h1 { font-weight: 800; }
+/* hero statements: lighter cut so the large type stays editorial */
+:root .kt-line { font-weight: 600; }
+/* section labels may be <h2>/<h3> for the outline; they keep their pill-label look */
+:root .terminal-section-label {
+  font-family: var(--sans);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 18px;
+}
+
+/* ---------- Running text ---------- */
+p {
+  font-family: var(--sans);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+/* muted text on dark surfaces (#A1A1AA on #052424 ≈ 6.4:1, passes WCAG AA).
+   Light surfaces keep their darker ink: #A1A1AA on #F5F5F5 is only ≈ 2.3:1. */
+:root .terminal-footer p,
+:root .mega-intro p {
+  color: var(--text-dark);
+}
+
+/* ---------- Technical data ---------- */
+.micro-label,
+.start-card-tag,
+.service-row > span,
+.principles span,
+.showcase-status,
+.showcase-caption .micro-label,
+.detail-hero-meta span,
+.detail-stats span,
+.feature-position,
+.feature-collapsed small,
+.kt-hero-hud,
+.kt-hero-load,
+.kt-hero-hint {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
+}
+.micro-label,
+.start-card-tag,
+.service-row > span,
+.principles span,
+.showcase-status,
+.detail-hero-meta span,
+.detail-stats span {
+  font-size: 0.75rem;
+}
+/* every other mono element (nav, buttons, form labels) keeps its tuned size and spacing */
+.t-button,
+.header-nav-item button,
+.contact-form-grid label > span {
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,256 @@
+/* Çerez bandı — üstteki yüzen menü çubuğunun alttaki karşılığı:
+   aynı obsidyen cam, aynı köşe yarıçapı, aynı mono etiket dili. */
+
+.ck-bar {
+  position: fixed;
+  z-index: 990;
+  left: 50%;
+  bottom: 16px;
+  width: min(1120px, calc(100% - 32px));
+  max-height: calc(100svh - 110px);
+  overflow-y: auto;
+  transform: translateX(-50%);
+  border: 1px solid rgba(250, 249, 245, 0.14);
+  border-radius: 20px;
+  background: rgba(20, 23, 25, 0.96);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+  color: #faf9f5;
+  font-family: var(--sans);
+  animation: ck-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ck-bar:focus {
+  outline: none;
+}
+
+.ck-bar:focus-visible {
+  outline: 2px solid #c2a276;
+  outline-offset: 3px;
+}
+
+@keyframes ck-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.ck-bar__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding: 16px 18px 16px 24px;
+}
+
+.ck-bar__copy {
+  min-width: 0;
+}
+
+.ck-bar__label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #dfbe96;
+}
+
+.ck-bar__copy p {
+  max-width: 62ch;
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: rgba(250, 249, 245, 0.8);
+}
+
+.ck-bar__copy a {
+  color: #faf9f5;
+  text-decoration: underline;
+  text-decoration-color: rgba(223, 190, 150, 0.7);
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.ck-bar__copy a:hover {
+  color: #dfbe96;
+}
+
+.ck-bar__actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.ck-btn {
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.ck-btn--solid {
+  border-color: #a68158;
+  background: #a68158;
+  color: #14171a;
+}
+
+.ck-btn--solid:hover {
+  border-color: #c2a276;
+  background: #c2a276;
+}
+
+.ck-btn--outline {
+  border-color: rgba(250, 249, 245, 0.34);
+  color: #faf9f5;
+}
+
+.ck-btn--outline:hover {
+  border-color: rgba(250, 249, 245, 0.7);
+  background: rgba(250, 249, 245, 0.08);
+}
+
+.ck-btn--ghost {
+  padding: 0 12px;
+  color: rgba(250, 249, 245, 0.74);
+}
+
+.ck-btn--ghost:hover {
+  color: #faf9f5;
+}
+
+.ck-btn:focus-visible,
+.ck-switch:focus-visible {
+  outline: 2px solid #dfbe96;
+  outline-offset: 3px;
+}
+
+/* Tercih paneli */
+.ck-prefs {
+  padding: 8px 24px 4px;
+  border-bottom: 1px solid rgba(250, 249, 245, 0.12);
+}
+
+.ck-pref {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(250, 249, 245, 0.09);
+}
+
+.ck-pref strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.ck-pref p {
+  margin: 3px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: rgba(250, 249, 245, 0.66);
+}
+
+.ck-pref__fixed {
+  flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #dfbe96;
+}
+
+.ck-switch {
+  position: relative;
+  flex: 0 0 auto;
+  width: 46px;
+  height: 26px;
+  border: 1px solid rgba(250, 249, 245, 0.32);
+  border-radius: 999px;
+  background: rgba(250, 249, 245, 0.06);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.ck-switch span {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(250, 249, 245, 0.72);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease;
+}
+
+.ck-switch.is-on {
+  border-color: #a68158;
+  background: #a68158;
+}
+
+.ck-switch.is-on span {
+  background: #14171a;
+  transform: translateX(20px);
+}
+
+.ck-prefs__foot {
+  display: flex;
+  justify-content: flex-end;
+  padding: 14px 0 12px;
+}
+
+@media (max-width: 860px) {
+  .ck-bar__main {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+  }
+
+  .ck-bar__actions {
+    flex-wrap: wrap;
+  }
+
+  .ck-btn--outline,
+  .ck-btn--solid {
+    flex: 1 1 150px;
+  }
+
+  .ck-btn--ghost {
+    flex: 1 1 100%;
+    order: 3;
+    min-height: 36px;
+  }
+
+  .ck-prefs {
+    padding-inline: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ck-bar {
+    animation: none;
+  }
+
+  .ck-switch span {
+    transition: none;
+  }
+}

@@ -1,0 +1,1170 @@
+/* ==========================================================================
+   KUK İNŞAAT — SIGNATURE HOMEPAGE EXPERIENCE
+   Quiet Luxury · Architectural Editorial · Contemporary Minimalism
+   Tüm kurallar .sig-home kapsamındadır; Header ve Hero stillerine dokunmaz.
+   ========================================================================== */
+
+.sig-home {
+  --sig-obsidian: #141719;
+  --sig-charcoal: #1f2326;
+  --sig-limestone: #f1efe9;
+  --sig-ivory: #faf9f5;
+  --sig-ink: #191c1e;
+  --sig-ink-soft: #3a3e40;
+  --sig-stone: #6e6a61;
+  --sig-on-dark: #faf9f5;
+  --sig-on-dark-soft: rgba(250, 249, 245, 0.74);
+  --sig-on-dark-muted: rgba(241, 239, 233, 0.52);
+  --sig-bronze: #a68158;
+  --sig-bronze-deep: #77572f;
+  --sig-bronze-light: #dfbe96;
+  --sig-line-light: rgba(25, 28, 30, 0.12);
+  --sig-line-dark: rgba(250, 249, 245, 0.14);
+  --sig-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --sig-ease-out: cubic-bezier(0.19, 1, 0.22, 1);
+
+  position: relative;
+  overflow-x: clip;
+  background: var(--sig-limestone);
+  color: var(--sig-ink);
+  font-family: var(--sans);
+}
+
+:where(.sig-home) ol,
+:where(.sig-home) ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sig-home h2,
+.sig-home h3 {
+  color: inherit;
+  font-family: var(--display);
+}
+
+/* Yüzey temaları */
+.sig-theme-obsidian {
+  --sig-border: var(--sig-line-dark);
+  --sig-muted: var(--sig-on-dark-muted);
+  --sig-body: var(--sig-on-dark-soft);
+  --sig-accent-label: var(--sig-bronze-light);
+  background: var(--sig-obsidian);
+  color: var(--sig-on-dark);
+}
+
+.sig-theme-limestone {
+  --sig-border: var(--sig-line-light);
+  --sig-muted: var(--sig-stone);
+  --sig-body: var(--sig-ink-soft);
+  --sig-accent-label: var(--sig-bronze-deep);
+  background: var(--sig-limestone);
+  color: var(--sig-ink);
+}
+
+.sig-theme-ivory {
+  --sig-border: var(--sig-line-light);
+  --sig-muted: var(--sig-stone);
+  --sig-body: var(--sig-ink-soft);
+  --sig-accent-label: var(--sig-bronze-deep);
+  background: var(--sig-ivory);
+  color: var(--sig-ink);
+}
+
+/* Konteyner ve bölüm ritmi */
+.sig-section {
+  position: relative;
+  padding: clamp(96px, 10.5vw, 156px) 0;
+}
+
+.sig-container {
+  width: min(1280px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* Üst etiket ve tipografi */
+.sig-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sig-muted);
+}
+
+.sig-eyebrow__index {
+  color: var(--sig-accent-label);
+  font-weight: 700;
+}
+
+.sig-eyebrow > i {
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.sig-meta-note {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sig-muted);
+}
+
+.sig-display {
+  margin-top: 32px;
+  font-size: clamp(36px, 4.6vw, 68px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.038em;
+  text-wrap: balance;
+}
+
+.sig-h2 {
+  margin-top: 24px;
+  font-size: clamp(32px, 3.8vw, 54px);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.sig-prose {
+  max-width: 52ch;
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.72;
+  color: var(--sig-body);
+}
+
+.sig-prose--large {
+  max-width: 54ch;
+  font-size: clamp(17px, 1.3vw, 20px);
+  line-height: 1.68;
+}
+
+/* Editoryal bağlantı */
+.sig-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding-bottom: 6px;
+  color: var(--sig-ink);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.sig-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.35;
+  transition: opacity 0.35s var(--sig-ease), background-color 0.35s var(--sig-ease);
+}
+
+.sig-link svg {
+  transition: transform 0.4s var(--sig-ease);
+}
+
+.sig-link:hover::after {
+  opacity: 1;
+  background: var(--sig-bronze);
+}
+
+.sig-link:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.sig-link--light {
+  color: var(--sig-on-dark);
+}
+
+/* Konsept görsel rozeti (gerçek proje ile konsept ayrımı için sade etiket) */
+.sig-badge-caption {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  z-index: 2;
+  padding: 7px 13px;
+  border: 1px solid rgba(250, 249, 245, 0.18);
+  border-radius: 999px;
+  background: rgba(20, 23, 25, 0.56);
+  backdrop-filter: blur(12px);
+  color: rgba(250, 249, 245, 0.86);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   UNIFIED MOTION SYSTEM
+   ========================================================================== */
+
+.sig-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-top: 0.16em;
+  margin-top: -0.16em;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.sig-word > span {
+  display: inline-block;
+  transform: translate3d(0, 125%, 0);
+}
+
+[data-sig="words"].is-in .sig-word > span {
+  animation: sig-word-in 0.85s var(--sig-ease-out) both;
+  animation-delay: calc(var(--wi, 0) * 32ms + 40ms);
+}
+
+@keyframes sig-word-in {
+  from {
+    transform: translate3d(0, 125%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+[data-sig="rise"] {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 0.95s var(--sig-ease), transform 1.15s var(--sig-ease);
+}
+
+[data-sig="rise"].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+[data-sig="hairline"] {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.35s var(--sig-ease-out);
+}
+
+[data-sig="hairline"].is-in {
+  transform: scaleX(1);
+}
+
+[data-sig="curtain"] {
+  clip-path: inset(10% 0 10% 0 round 22px);
+  opacity: 0.01;
+  transition: clip-path 1.4s var(--sig-ease-out), opacity 0.7s ease;
+}
+
+[data-sig="curtain"].is-in {
+  clip-path: inset(0% 0 0% 0 round 22px);
+  opacity: 1;
+}
+
+[data-sig="curtain"] img {
+  transform: translate3d(0, var(--py, 0px), 0) scale(1.07);
+  transition: transform 1.8s var(--sig-ease-out);
+}
+
+[data-sig="curtain"].is-in img {
+  transform: translate3d(0, var(--py, 0px), 0) scale(1.02);
+}
+
+[data-sig="stagger"] > * {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition: opacity 0.9s var(--sig-ease), transform 1.1s var(--sig-ease);
+}
+
+[data-sig="stagger"].is-in > * {
+  opacity: 1;
+  transform: none;
+}
+
+[data-sig="stagger"] > :nth-child(2) { transition-delay: 75ms; }
+[data-sig="stagger"] > :nth-child(3) { transition-delay: 150ms; }
+[data-sig="stagger"] > :nth-child(4) { transition-delay: 225ms; }
+[data-sig="stagger"] > :nth-child(5) { transition-delay: 300ms; }
+
+/* ==========================================================================
+   01 · BRAND STATEMENT
+   ========================================================================== */
+
+.sig-statement {
+  padding-top: clamp(104px, 11vw, 164px);
+  padding-bottom: clamp(104px, 11vw, 164px);
+}
+
+.sig-statement__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sig-statement__title {
+  max-width: 18.5ch;
+  margin-top: clamp(36px, 4.5vw, 60px);
+}
+
+.sig-hairline {
+  width: 100%;
+  height: 1px;
+  margin: clamp(44px, 5.5vw, 76px) 0;
+  background: var(--sig-border);
+}
+
+.sig-statement__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+
+.sig-statement__tag {
+  grid-column: 1 / span 4;
+  padding-top: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sig-muted);
+}
+
+.sig-statement__body {
+  grid-column: 6 / span 7;
+}
+
+/* ==========================================================================
+   02 · OUR CAPABILITIES / HİZMETLER
+   ========================================================================== */
+
+.sig-header-split {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 32px;
+  align-items: end;
+  margin-bottom: clamp(56px, 6.5vw, 92px);
+}
+
+.sig-header-split > :first-child {
+  grid-column: 1 / span 7;
+}
+
+.sig-header-split__aside {
+  grid-column: 8 / span 5;
+}
+
+.sig-cap-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(36px, 4.5vw, 64px);
+  align-items: start;
+}
+
+.sig-cap-stage-wrap {
+  grid-column: 1 / span 5;
+  position: sticky;
+  top: 116px;
+}
+
+.sig-cap-stage {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--sig-obsidian);
+  box-shadow: 0 28px 70px rgba(20, 23, 25, 0.12);
+}
+
+.sig-cap-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.85s var(--sig-ease);
+}
+
+.sig-cap-slide.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.sig-cap-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06) !important;
+  transition: transform 1.35s var(--sig-ease-out) !important;
+}
+
+.sig-cap-slide.is-active img {
+  transform: scale(1) !important;
+}
+
+.sig-cap-stage__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(20, 23, 25, 0.78) 0%, rgba(20, 23, 25, 0.18) 42%, transparent 72%);
+}
+
+.sig-cap-stage__caption {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--sig-on-dark);
+}
+
+.sig-cap-stage__caption span {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sig-bronze-light);
+}
+
+.sig-cap-stage__caption strong {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: rgba(250, 249, 245, 0.92);
+}
+
+.sig-cap-list {
+  grid-column: 6 / span 7;
+  border-top: 1px solid var(--sig-border);
+}
+
+.sig-cap-list > li {
+  border-bottom: 1px solid var(--sig-border);
+}
+
+.sig-cap-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 44px;
+  gap: 18px;
+  align-items: center;
+  padding: clamp(26px, 2.8vw, 36px) 4px;
+  color: inherit;
+  transition: padding-left 0.45s var(--sig-ease);
+}
+
+.sig-cap-row::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--sig-bronze);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.7s var(--sig-ease-out);
+}
+
+.sig-cap-row:hover::after,
+.sig-cap-row.is-active::after {
+  transform: scaleX(1);
+}
+
+.sig-cap-row__index {
+  align-self: start;
+  padding-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--sig-accent-label);
+}
+
+.sig-cap-row__content h3 {
+  font-size: clamp(23px, 2.35vw, 33px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.028em;
+  transition: transform 0.55s var(--sig-ease), color 0.35s ease;
+}
+
+.sig-cap-row:hover .sig-cap-row__content h3,
+.sig-cap-row.is-active .sig-cap-row__content h3 {
+  transform: translateX(8px);
+}
+
+.sig-cap-row__content p {
+  max-width: 50ch;
+  margin-top: 10px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--sig-body);
+}
+
+.sig-cap-row__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--sig-border);
+  border-radius: 50%;
+  color: var(--sig-ink);
+  transition: background-color 0.4s var(--sig-ease), border-color 0.4s var(--sig-ease), color 0.4s var(--sig-ease), transform 0.55s var(--sig-ease);
+}
+
+.sig-cap-row:hover .sig-cap-row__icon,
+.sig-cap-row.is-active .sig-cap-row__icon {
+  background: var(--sig-ink);
+  border-color: var(--sig-ink);
+  color: var(--sig-on-dark);
+  transform: translate(2px, -2px);
+}
+
+/* ==========================================================================
+   03 · ARCHITECTURAL EXPERIENCE
+   ========================================================================== */
+
+.sig-atmosphere {
+  padding-top: clamp(72px, 8vw, 120px);
+}
+
+.sig-atmosphere__stage {
+  --ap: 0;
+  width: min(1440px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.sig-atmosphere__frame {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 21 / 9;
+  min-height: 360px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--sig-charcoal);
+  clip-path: inset(
+    calc((1 - var(--ap, 1)) * 6%)
+    calc((1 - var(--ap, 1)) * 4.5%)
+    calc((1 - var(--ap, 1)) * 6%)
+    calc((1 - var(--ap, 1)) * 4.5%)
+    round 24px
+  );
+  transition: clip-path 0.35s linear;
+}
+
+.sig-atmosphere__frame img {
+  width: 100%;
+  height: 112%;
+  margin-top: -6%;
+  object-fit: cover;
+  transform: translate3d(0, var(--py, 0px), 0) scale(calc(1.06 - var(--ap, 1) * 0.04));
+  will-change: transform;
+}
+
+.sig-atmosphere__copy {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 32px;
+  align-items: end;
+  margin-top: clamp(48px, 6vw, 84px);
+}
+
+.sig-atmosphere__copy > :first-child {
+  grid-column: 1 / span 7;
+}
+
+.sig-atmosphere__aside {
+  grid-column: 8 / span 5;
+}
+
+/* ==========================================================================
+   04 · OUR APPROACH
+   ========================================================================== */
+
+.sig-approach__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(40px, 5vw, 72px);
+  align-items: start;
+}
+
+.sig-approach__lead {
+  grid-column: 1 / span 5;
+  position: sticky;
+  top: 124px;
+}
+
+.sig-approach__lead .sig-prose {
+  margin-top: 22px;
+}
+
+.sig-approach__chapters {
+  grid-column: 7 / span 6;
+  border-top: 1px solid var(--sig-border);
+}
+
+.sig-chapter {
+  padding: clamp(32px, 3.6vw, 48px) 0;
+  border-bottom: 1px solid var(--sig-border);
+}
+
+.sig-chapter__head {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.sig-chapter__head > span {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--sig-accent-label);
+}
+
+.sig-chapter__head h3 {
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+
+.sig-chapter p {
+  max-width: 50ch;
+  margin-top: 16px;
+  padding-left: 38px;
+  font-size: 16px;
+  line-height: 1.72;
+  color: var(--sig-body);
+}
+
+/* ==========================================================================
+   05 · SELECTED WORKS / PROJECTS
+   ========================================================================== */
+
+.sig-works__monograph {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(36px, 5vw, 72px);
+  align-items: center;
+}
+
+.sig-works__visual {
+  grid-column: 1 / span 7;
+  display: block;
+}
+
+.sig-works__figure {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 16 / 10.5;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--sig-obsidian);
+  box-shadow: 0 28px 70px rgba(20, 23, 25, 0.1);
+}
+
+.sig-works__figure img {
+  width: 100%;
+  height: 108%;
+  margin-top: -4%;
+  object-fit: cover;
+}
+
+.sig-works__visual:hover .sig-works__figure img {
+  transform: translate3d(0, var(--py, 0px), 0) scale(1.055);
+}
+
+.sig-works__narrative {
+  grid-column: 8 / span 5;
+}
+
+.sig-works__narrative .sig-prose {
+  margin-top: 22px;
+}
+
+.sig-typologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.sig-typologies li {
+  padding: 8px 14px;
+  border: 1px solid var(--sig-border);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sig-ink-soft);
+}
+
+.sig-works-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.sig-work-card {
+  display: block;
+}
+
+.sig-work-card__media {
+  margin: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--sig-obsidian);
+}
+
+.sig-work-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sig-work-card__meta {
+  margin-top: 18px;
+}
+
+.sig-work-card__meta span {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sig-accent-label);
+}
+
+.sig-work-card__meta h3 {
+  margin-top: 8px;
+  font-size: 26px;
+}
+
+.sig-work-card__meta p {
+  margin-top: 6px;
+  color: var(--sig-body);
+  font-size: 14.5px;
+}
+
+/* ==========================================================================
+   06 · FINAL CONTACT / CLOSING EXPERIENCE
+   ========================================================================== */
+
+.sig-closing {
+  padding-top: clamp(72px, 8vw, 116px);
+  padding-bottom: clamp(88px, 10vw, 140px);
+}
+
+.sig-closing__visual {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 24 / 9;
+  max-height: 380px;
+  min-height: 250px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--sig-charcoal);
+}
+
+.sig-closing__visual img {
+  width: 100%;
+  height: 110%;
+  margin-top: -5%;
+  object-fit: cover;
+}
+
+.sig-closing__fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--sig-obsidian) 2%, rgba(20, 23, 25, 0.24) 48%, transparent 100%);
+}
+
+.sig-closing__body {
+  margin-top: clamp(32px, 3.6vw, 48px);
+}
+
+.sig-closing__title {
+  max-width: 16ch;
+}
+
+.sig-closing__footer {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 32px;
+  align-items: end;
+  margin-top: clamp(36px, 4.5vw, 60px);
+  padding-top: clamp(32px, 3.8vw, 48px);
+  border-top: 1px solid var(--sig-border);
+}
+
+.sig-closing__footer > .sig-prose {
+  grid-column: 1 / span 5;
+}
+
+.sig-closing__actions {
+  grid-column: 7 / span 6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.sig-closing__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.sig-cta-btn {
+  min-height: 46px;
+  padding-inline: 22px;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.sig-cta-btn:hover {
+  background: var(--sig-on-dark);
+  border-color: var(--sig-on-dark);
+  color: var(--sig-obsidian);
+}
+
+.sig-ghost-btn {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  border: 1px solid rgba(250, 249, 245, 0.24);
+  border-radius: 999px;
+  color: var(--sig-on-dark);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sig-ghost-btn:hover {
+  border-color: rgba(250, 249, 245, 0.64);
+  background: rgba(250, 249, 245, 0.08);
+}
+
+.sig-closing__direct {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+}
+
+.sig-closing__direct a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--sig-on-dark-soft);
+  font-size: 14.5px;
+  transition: color 0.25s ease;
+}
+
+.sig-closing__direct a:hover {
+  color: var(--sig-bronze-light);
+}
+
+/* ==========================================================================
+   RESPONSIVE EXPERIENCE (1024px · 768px · 390px)
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  .sig-statement__tag {
+    grid-column: 1 / span 5;
+  }
+  .sig-statement__body {
+    grid-column: 6 / span 7;
+  }
+  .sig-approach__chapters {
+    grid-column: 6 / span 7;
+  }
+}
+
+@media (max-width: 900px) {
+  .sig-section {
+    padding: 84px 0;
+  }
+
+  .sig-statement__grid,
+  .sig-header-split,
+  .sig-cap-grid,
+  .sig-atmosphere__copy,
+  .sig-approach__grid,
+  .sig-works__monograph,
+  .sig-closing__footer,
+  .sig-works-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .sig-statement__tag,
+  .sig-statement__body,
+  .sig-header-split > :first-child,
+  .sig-header-split__aside,
+  .sig-cap-stage-wrap,
+  .sig-cap-list,
+  .sig-atmosphere__copy > :first-child,
+  .sig-atmosphere__aside,
+  .sig-approach__lead,
+  .sig-approach__chapters,
+  .sig-works__visual,
+  .sig-works__narrative,
+  .sig-closing__footer > .sig-prose,
+  .sig-closing__actions {
+    grid-column: 1 / -1;
+  }
+
+  .sig-cap-stage-wrap,
+  .sig-approach__lead {
+    position: static;
+  }
+
+  .sig-cap-stage {
+    aspect-ratio: 16 / 10;
+  }
+
+  .sig-atmosphere__frame {
+    aspect-ratio: 16 / 10;
+    min-height: 280px;
+    clip-path: inset(0 round 20px);
+  }
+
+  .sig-atmosphere__frame img {
+    height: 100%;
+    margin-top: 0;
+    transform: none;
+  }
+
+  .sig-closing__visual {
+    aspect-ratio: 16 / 10;
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 650px) {
+  .sig-container {
+    width: calc(100% - 36px);
+  }
+
+  .sig-atmosphere__stage {
+    width: calc(100% - 24px);
+  }
+
+  .sig-section {
+    padding: 72px 0;
+  }
+
+  .sig-statement {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+
+  .sig-statement__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .sig-display {
+    margin-top: 24px;
+    font-size: clamp(31px, 8.6vw, 42px);
+    line-height: 1.08;
+  }
+
+  .sig-h2 {
+    margin-top: 18px;
+    font-size: clamp(28px, 7.8vw, 36px);
+    line-height: 1.1;
+  }
+
+  .sig-cap-stage {
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+  }
+
+  .sig-cap-row {
+    grid-template-columns: 34px minmax(0, 1fr) 38px;
+    gap: 12px;
+    padding: 22px 0;
+  }
+
+  .sig-cap-row__icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .sig-atmosphere__frame,
+  .sig-works__figure,
+  .sig-closing__visual {
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+  }
+
+  .sig-badge-caption {
+    right: 12px;
+    bottom: 12px;
+    padding: 6px 10px;
+    font-size: 8.5px;
+  }
+
+  .sig-chapter p {
+    padding-left: 0;
+  }
+
+  .sig-closing__buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sig-cta-btn,
+  .sig-ghost-btn {
+    width: 100%;
+  }
+
+  .sig-closing__direct {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sig-home *,
+  .sig-home *::before,
+  .sig-home *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  [data-sig],
+  [data-sig="stagger"] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  .sig-word > span {
+    transform: none !important;
+  }
+
+  .sig-atmosphere__frame {
+    clip-path: none !important;
+  }
+}
+
+/* ==========================================================================
+   ANA SAYFA — iç sayfalarla paylaşılan panel diline geçiş notları (2026).
+   Eski sig-* bölüm düzenleri kullanılmıyor; animasyon kancaları (data-sig,
+   .sig-word, .is-in) ve home/motion.ts olduğu gibi korunur.
+   ========================================================================== */
+
+/* Koyu açılış bölümü: arka planı her zaman obsidyen; iç sayfa kahramanlarıyla aynı grid */
+.sig-home section.prj-hero.hm-statement,
+.sig-home section.prj-hero.hm-areas {
+  background: #0d1012 !important;
+  color: #faf9f5;
+}
+
+.sig-home section.prj-hero.hm-statement {
+  padding: clamp(72px, 8vw, 116px) 0 clamp(80px, 9vw, 128px);
+}
+
+.sig-home section.prj-hero.hm-areas {
+  padding: clamp(72px, 8vw, 116px) 0 clamp(88px, 9.5vw, 136px);
+}
+
+/* Bu bölümlerdeki başlık ve metinler koyu zeminde açık renkte */
+.sig-home .hm-statement .prj-hero__title,
+.sig-home .hm-areas .sgi-h2 {
+  color: #faf9f5;
+}
+
+.sig-home .hm-statement .prj-hero__sub,
+.sig-home .hm-areas .sgi-header-split__aside .sgi-prose {
+  color: rgba(250, 249, 245, 0.78);
+}
+
+.sig-home .hm-areas .sgi-header-split__aside .sgi-link {
+  color: #faf9f5;
+}
+
+.sig-home .hm-statement .sig-eyebrow,
+.sig-home .hm-areas .sig-eyebrow {
+  color: rgba(250, 249, 245, 0.6);
+}
+
+.sig-home .hm-statement .sig-eyebrow__index,
+.sig-home .hm-areas .sig-eyebrow__index {
+  color: #dfbe96;
+}
+
+/* Koyu açılış bölümü: iç sayfa kahramanlarıyla aynı grid, sayfaya özgü daha kompakt boşluk */
+.sig-home section.prj-hero.hm-statement {
+  padding: clamp(72px, 8vw, 116px) 0 clamp(80px, 9vw, 128px);
+}
+
+/*Açılış bölümünün sağ sütunu: metin + bağlantı */
+.sig-home .prj-hero__sub p {
+  margin: 0;
+  font-size: inherit;
+  line-height: 1.68;
+  color: inherit;
+}
+
+.sig-home .prj-hero__sub .prj-link {
+  margin-top: 22px;
+}
+
+/* Çalışma alanları üçlüsü: kart bir bağlantı gibi davransın */
+.sig-home a.prj-panel.hm-area {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Portföy monografisindeki vaziyet planı kartı */
+.sig-home .sgi-monograph__figure.hm-plan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  aspect-ratio: 16 / 10.5;
+  padding: clamp(24px, 3.2vw, 44px) clamp(20px, 3vw, 40px) 54px;
+  background: #0d1012;
+  border: 1px solid rgba(250, 249, 245, 0.1);
+  box-shadow: none;
+}
+
+.sig-home .hm-plan .pj-sheet__cap {
+  color: rgba(250, 249, 245, 0.56);
+}
+
+@media (max-width: 650px) {
+  .sig-home .sgi-monograph__figure.hm-plan {
+    aspect-ratio: 16 / 11;
+  }
+}

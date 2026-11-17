@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KUK İnşaat">
+  <rect width="64" height="64" rx="14" fill="#191C1E"/>
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#A68158" stroke-opacity=".62" stroke-width="1.5"/>
+  <g transform="translate(11.5 8) scale(0.1265)" fill="#ffffff">
+    <path fill-rule="evenodd" d="M297.08 261.26 164.79 341.36 31 259.41V113.09L164.79 30.22l132.29 82.41ZM164.79 3.36 6.48 98.83v174.45l158.31 95.86 156.35-95.86V98.83Z"/>
+    <path d="M67.56 173.29 101.8 109.85V89.02L74.5 105.22l-45.35 82.42.46 49.08 24.07-38.43 49.97 83.8v-46.76Z"/>
+    <path d="m253.14 105.22-27.3-16.2v20.83l34.25 63.44-36.1 62.04v46.76l49.98-83.8 24.06 38.43.46-49.08Z"/>
+    <path d="M183.24 62.6v204.68l-18.51 12.96-18.97-12.96.93-204.68-26.38 15.31V289.5l43.96 29.17 44.42-28.24V76.98Z"/>
+  </g>
+  <rect x="22" y="57" width="20" height="2" rx="1" fill="#A68158"/>
+</svg>

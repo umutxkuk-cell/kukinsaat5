@@ -1,0 +1,104 @@
+/* Keep the established header size and motion; only separate page navigation
+   from the submenu trigger and bridge the pointer gap above the mega menu. */
+.terminal-header .header-nav-item > .header-nav-main {
+  position: relative;
+  display: inline-flex;
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0 34px;
+  border-radius: 13px 0 0 13px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .09em;
+}
+
+.terminal-header .header-nav-item > .header-nav-toggle {
+  display: grid;
+  flex: 0 0 34px;
+  width: 34px;
+  min-width: 34px;
+  height: 44px;
+  place-items: center;
+  padding: 0;
+  border-radius: 0 13px 13px 0;
+}
+
+.terminal-header .header-nav-toggle::after { display: none; }
+.terminal-header .header-nav-item:hover > .header-nav-main,
+.terminal-header .header-nav-item:hover > .header-nav-toggle,
+.terminal-header .header-nav-item.is-active > .header-nav-main,
+.terminal-header .header-nav-item.is-active > .header-nav-toggle {
+  background: rgba(166, 129, 88, .14);
+}
+
+.terminal-header .header-nav-item > .header-nav-main:hover::after,
+.terminal-header .header-nav-item:hover > .header-nav-main::after,
+.terminal-header .header-nav-item.is-active > .header-nav-main::after {
+  right: 11px;
+}
+
+/* Mega menu begins below the bar; fill the otherwise uncovered pointer gap. */
+.terminal-header .mega-menu::before {
+  position: absolute;
+  top: -26px;
+  left: 0;
+  right: 0;
+  height: 27px;
+  content: "";
+}
+
+.terminal-header .mobile-nav-heading {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(250, 249, 245, .15);
+}
+
+.terminal-header .mobile-nav-main {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 66px;
+  align-items: center;
+  gap: 0;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.terminal-header .mobile-nav-main > span {
+  width: 35px;
+  flex: 0 0 35px;
+  color: var(--text-on-dark-secondary);
+  font-family: var(--mono);
+  font-size: 8px;
+}
+
+.terminal-header .mobile-nav-main[aria-current="page"] {
+  color: var(--accent-hover);
+}
+
+.terminal-header .mobile-nav-heading > button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  place-items: center;
+  border-radius: 12px;
+}
+
+.terminal-header .mobile-nav-heading > button svg {
+  width: 17px;
+  transition: transform .2s;
+}
+
+.terminal-header .mobile-nav-heading > button:hover {
+  background: rgba(250, 249, 245, .1);
+}
+
+@media (max-width: 1220px) {
+  .terminal-header .header-nav-item > .header-nav-main { font-size: 9.2px; }
+}

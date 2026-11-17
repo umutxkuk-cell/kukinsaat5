@@ -1,0 +1,112 @@
+/* KUK İnşaat — Architectural Frame cursor
+   Bronze corners, a crisp centre point and an editorial view state.
+   Native cursor is only hidden while .kuk-cursor.is-visible is actively tracking a fine pointer. */
+:root {
+  --cursor-bronze: #A68158;
+  --cursor-bronze-bright: #D6B489;
+  --cursor-graphite: #191C1E;
+  --cursor-charcoal: #292E30;
+  --cursor-limestone: #F1EFE9;
+}
+
+html.kuk-cursor-enabled,
+html.kuk-cursor-enabled * {
+  cursor: none !important;
+}
+html.kuk-cursor-enabled input,
+html.kuk-cursor-enabled textarea,
+html.kuk-cursor-enabled [contenteditable="true"] {
+  cursor: text !important;
+}
+html.kuk-cursor-enabled select { cursor: pointer !important; }
+html.kuk-cursor-enabled.kuk-cursor-keyboard,
+html.kuk-cursor-enabled.kuk-cursor-keyboard * {
+  cursor: auto !important;
+}
+
+.kuk-cursor {
+  position: fixed;
+  z-index: 2147483647;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  color: var(--cursor-limestone);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-100px, -100px, 0);
+  filter: drop-shadow(0 1px 2px rgba(20, 23, 25, .42));
+  transition:
+    width .36s cubic-bezier(.19, 1, .22, 1),
+    height .36s cubic-bezier(.19, 1, .22, 1),
+    opacity .18s ease,
+    background-color .3s ease,
+    border-radius .36s cubic-bezier(.19, 1, .22, 1);
+  will-change: transform;
+}
+.kuk-cursor.is-visible { opacity: 1; }
+.kuk-cursor__corner {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 0 solid var(--cursor-bronze);
+  transition: width .36s cubic-bezier(.19, 1, .22, 1), height .36s cubic-bezier(.19, 1, .22, 1), border-color .28s ease;
+}
+.kuk-cursor__corner--tl { top: 0; left: 0; border-top-width: 1.5px; border-left-width: 1.5px; }
+.kuk-cursor__corner--tr { top: 0; right: 0; border-top-width: 1.5px; border-right-width: 1.5px; }
+.kuk-cursor__corner--br { right: 0; bottom: 0; border-right-width: 1.5px; border-bottom-width: 1.5px; }
+.kuk-cursor__corner--bl { bottom: 0; left: 0; border-bottom-width: 1.5px; border-left-width: 1.5px; }
+.kuk-cursor__dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background: var(--cursor-bronze);
+  box-shadow: 0 0 0 1px rgba(25, 28, 30, .45);
+  transition: opacity .2s ease, background-color .2s ease, transform .2s ease;
+}
+.kuk-cursor__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--cursor-limestone);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity .24s ease;
+}
+
+.kuk-cursor.is-interactive { width: 44px; height: 44px; }
+.kuk-cursor.is-interactive .kuk-cursor__corner { width: 11px; height: 11px; border-color: var(--cursor-bronze-bright); }
+.kuk-cursor.is-interactive .kuk-cursor__dot { background: var(--cursor-limestone); }
+.kuk-cursor.is-view {
+  width: 92px;
+  height: 92px;
+  border-radius: 18px;
+  background: rgba(20, 23, 25, .86);
+  backdrop-filter: blur(8px);
+}
+.kuk-cursor.is-view .kuk-cursor__corner { width: 15px; height: 15px; border-color: var(--cursor-bronze-bright); }
+.kuk-cursor.is-view .kuk-cursor__dot { opacity: 0; }
+.kuk-cursor.is-view .kuk-cursor__label { opacity: 1; }
+.kuk-cursor.is-text { opacity: 0 !important; }
+.kuk-cursor.is-pressed .kuk-cursor__corner { border-color: var(--cursor-limestone); }
+
+[data-magnetic-inner] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kuk-cursor { display: none !important; }
+}
